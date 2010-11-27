@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         id="deploymentArtifactBuilder"
+         name="Deployment Artifact Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="net.customer.al.deploy.prep.builder.DeploymentArtifactBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="allianzNature"
+         name="Allianz Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="net.customer.al.deploy.prep.builder.CustomerAlNature">
+         </run>
+      </runtime>
+      <builder
+            id="de.allianz.deploy.prep.deploymentArtifactBuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            nameFilter="*"
+            id="de.allianz.deploy.prep.contribution1">
+         <action
+               label="Add/Remove Sample Nature"
+               class="net.customer.al.deploy.prep.builder.ToggleNatureAction"
+               menubarPath="additions"
+               enablesFor="+"
+               id="de.allianz.deploy.prep.addRemoveNatureAction">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="xmlProblem"
+         name="XML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+</plugin>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Allianz Deployment Preparation
+Bundle-SymbolicName: de.net.customer.al.deploy.prep;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.customer.al.deploy.prep.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources
+Eclipse-AutoStart: true
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
